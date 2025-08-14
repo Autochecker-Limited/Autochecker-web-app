@@ -1,8 +1,3 @@
-Got it ✅
-I can create you a **complete professional README.md** that covers your AutoChecker project from intro to installation, usage, tech stack, and contribution guidelines.
-Here’s a draft you can put directly in the root of your repo:
-
----
 
 ```markdown
 # 🚗 AutoChecker – Vehicle Verification Platform
