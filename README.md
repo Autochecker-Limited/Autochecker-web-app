@@ -63,8 +63,8 @@ styles/         # Global styles & Tailwind config
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/yourusername/autochecker.git
-   cd autochecker
+   git clone https://github.com/Autochecker-Limited/Autochecker-web-app.git
+   cd Autochecker-web-app
 ````
 
 2. **Install dependencies**

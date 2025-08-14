@@ -1,0 +1,24 @@
+/* src/app/globals.css */
+@import "tailwindcss";
+
+:root { --radius: 16px; }
+html {
+  scroll-behavior: smooth;
+}
+body { font-family: var(--font-inter), ui-sans-serif, system-ui; }
+
+
+/* navbar links */
+.nav-link { @apply text-slate-300 hover:text-cyan-300 transition; }
+
+/* CTA shadows */
+.shadow-cyan { box-shadow: 0 12px 30px rgba(34, 211, 238, 0.25); }
+.shadow-emerald { box-shadow: 0 12px 30px rgba(16, 185, 129, 0.28); }
+
+/* float particles */
+@keyframes float {
+  0% { transform: translateY(0px); opacity: .6; }
+  50% { transform: translateY(-10px); opacity: .9; }
+  100% { transform: translateY(0px); opacity: .6; }
+}
+.animate-float { animation: float 4s ease-in-out infinite; }
