@@ -127,11 +127,7 @@ For questions, suggestions, or collaboration:
 
 ---
 
-```
-
----
 
 If you want, I can **add images/screenshots** of your UI in the README (like the CTA form screenshot you sent earlier) so it looks even more professional when someone views it on GitHub.  
 
 Do you want me to **add those visuals** and make the README fully presentation-ready? That would make it stand out a lot more.
-```
