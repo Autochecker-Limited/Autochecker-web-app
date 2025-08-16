@@ -1,5 +1,5 @@
 
-```markdown
+
 # 🚗 AutoChecker – Vehicle Verification Platform
 
 AutoChecker is a modern, responsive web application that allows users to verify vehicle information, save license plates/VINs, and get instant reports.  
@@ -29,8 +29,7 @@ It’s built with **Next.js**, **React**, and **Tailwind CSS**, integrating an i
 
 ## 📊 Stats (Sample)
 
-```
-
+```bash
 Checks Completed:    3,329+
 Plates/VINs Saved:   4,587+
 Report Delivery:     100%
@@ -42,8 +41,8 @@ Community Members:   7,845+
 
 ## 📂 Project Structure
 
-```
 
+```bash
 src/
 components/     # Reusable UI components (Navbar, Footer, CTA, etc.)
 app/            # Next.js app directory
@@ -57,7 +56,9 @@ styles/         # Global styles & Tailwind config
 ## ⚙️ Installation & Setup
 
 1. **Clone the repo**
-   ```bash
+
+
+```bash
    git clone https://github.com/Autochecker-Limited/Autochecker-web-app.git
    cd Autochecker-web-app
 ````
