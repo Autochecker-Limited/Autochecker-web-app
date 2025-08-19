@@ -1,6 +1,7 @@
 // @/components/Constants/pages/about.ts
 
-import {ChatIcon, LightningIcon, StarsIcon, StoreIcon } from "@/components/Constants/icons";
+import {ChatIcon, LightningIcon,
+    StarsIcon, StoreIcon } from "@/components/Constants/icons";
 import React from "react";
 
 type Feature = { title: string; desc: string; icon: React.ReactNode };
@@ -35,3 +36,5 @@ export const stats = [
     { k: "100%", label: "Report Delivery" },
     { k: "350+", label: "Community Members" },
 ];
+
+
