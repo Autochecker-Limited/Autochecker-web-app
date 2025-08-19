@@ -33,9 +33,8 @@ export default function About() {
             </h2>
 
             <p className="mx-auto mt-3 max-w-3xl text-slate-300">
-                AutoChecker  makes <span className={`font-bold `}>trusted vehicle verification</span> as simple as a WhatsApp message.
-              Share a plate or VIN, get instant results, and make safer decisions — without
-              downloading another app.
+                AutoChecker delivers <span className="font-bold">trusted vehicle verification</span> in a WhatsApp message.
+                Just share a plate or VIN and get instant results — no extra app needed.
             </p>
           </div>
 
