@@ -58,3 +58,38 @@ export const f_features = [
     icon: React.ReactNode;
     color: "cyan" | "emerald";
 }>;
+
+// absolute positions (tweak per your design)
+export const orbitSpots = [
+    "top-2 left-1/2 -translate-x-1/2",
+    "top-16 right-3 sm:right-10",
+    "top-1/2 right-0 -translate-y-1/2",
+    "bottom-2 left-1/2 -translate-x-1/2",
+    "top-1/2 left-0 -translate-y-1/2",
+    "top-16 left-3 sm:left-10",
+];
+
+
+export const SLOTS = [
+    { w: 150, h: 140, z: 10 },  // smallest
+    { w: 260, h: 260, z: 20 },  // medium
+    { w: 320, h: 420, z: 40 },  // biggest (center)
+    { w: 260, h: 260, z: 20 },  // medium
+    { w: 150, h: 140, z: 10 },  // smallest
+] as const;
+
+
+export const CARD_BASE =
+    "rounded-2xl overflow-hidden backdrop-blur-md transition-all duration-300 will-change-transform";
+
+export const CARD_ACTIVE =
+    // brighter surface, stronger ring/shadow, slight scale-up
+    "bg-white/95 dark:bg-slate-900/95 ring-2 ring-cyan-500/60 " +
+    "shadow-xl md:shadow-2xl scale-[1.04] md:scale-[1.07] " +
+    "text-slate-900 dark:text-slate-50";
+
+export const CARD_DIM =
+    // muted surface and text, softer ring
+    "bg-white/55 dark:bg-slate-900/55 ring-1 ring-black/10 dark:ring-white/10 " +
+    "opacity-80 hover:opacity-95 " +
+    "text-slate-700/80 dark:text-slate-200/80";
