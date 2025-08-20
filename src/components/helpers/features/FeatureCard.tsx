@@ -21,9 +21,9 @@ export default function FeatureCard({title, desc, icon, color = "cyan"}: Feature
     return (
         <div
             className={cn(
-                "relative rounded-2xl p-6 bg-gradient-to-br from-slate-200/60 to-slate-600/60",
+                "relative rounded-2xl p-6 bg-gradient-to-br from-gray-200/20 to-gray-300/50",
                 "border shadow-lg hover:shadow-xl transition",
-                "border-gray-500/50 dark:border-gray-300/30"
+                "border-gray-200/50 dark:border-gray-100/30 text-gray-500 dark:text-gray-300",
             )}
         >
             {/* Icon bubble */}
