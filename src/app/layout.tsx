@@ -1,5 +1,5 @@
 // src/app/layout.tsx
-import type  Metadata  from "next";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -12,7 +12,7 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["400","500","6
 const plexMono     = IBM_Plex_Mono({ subsets: ["latin"], weight: ["300","400","500","600","700"], variable: "--font-mono" });
 
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "AutoChecker — Verify Before You Buy",
   description:
     "Instant vehicle checks for theft, accidents, and ownership — right from WhatsApp.",
