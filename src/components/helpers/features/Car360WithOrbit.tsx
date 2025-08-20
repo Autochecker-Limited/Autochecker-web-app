@@ -41,7 +41,7 @@ export default function Car360WithOrbit() {
     if (!mounted) return null;
 
     const currentTheme = theme === "system" ? systemTheme : theme;
-    const modelSrc = currentTheme === "dark" ? "/models/bmw_vision.glb" : "/models/bmw_i8.glb";
+    const modelSrc = currentTheme === "dark" ? "/models/car_light.glb" : "/models/car_dark.glb";
 
     return (
         <section className="relative">
