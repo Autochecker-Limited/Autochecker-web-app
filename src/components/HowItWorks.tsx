@@ -7,7 +7,6 @@ import React, { useEffect, useRef, useState, PropsWithChildren } from "react";
 type RevealProps = PropsWithChildren<{
   from?: "up" | "down" | "left" | "right";
   delay?: number;
-  /** Accept any intrinsic tag name or React component */
   as?: React.ElementType;
   className?: string;
 }>;
@@ -53,8 +52,8 @@ function Reveal({
 
   return (
     <Tag
-      // Tag can be any element; cast the ref to a generic ref to satisfy TS
-      ref={ref as unknown as React.Ref<any>}
+      // cast to a concrete HTMLElement ref type (no `any`)
+      ref={ref as React.Ref<HTMLElement>}
       className={[
         "transition duration-700 ease-out will-change-transform will-change-opacity",
         show ? "opacity-100 translate-x-0 translate-y-0" : `opacity-0 ${start}`,
