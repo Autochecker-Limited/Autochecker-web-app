@@ -50,7 +50,7 @@ export default function Car360WithOrbit() {
                     {/* Car (under the cards) */}
                     <div className="absolute inset-0 z-10">
                         <ModelViewer
-                            src={modelSrc}
+                            src="/models/car_light.glb"
                             alt="3D BMW Vision"
                             camera-controls
                             auto-rotate
