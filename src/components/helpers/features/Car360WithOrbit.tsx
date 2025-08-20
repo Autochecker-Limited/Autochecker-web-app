@@ -1,11 +1,11 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useMemo, useState } from "react";
-import { motion } from "framer-motion"
-import { useTheme} from "next-themes";
+import {useEffect, useMemo, useState} from "react";
+import {motion} from "framer-motion"
+import {useTheme} from "next-themes";
 import FeatureCard from "@/components/helpers/features/FeatureCard";
-import {f_features, SLOTS, CARD_BASE,CARD_ACTIVE, CARD_DIM } from "@/components/Constants";
+import {f_features, SLOTS, CARD_BASE, CARD_ACTIVE, CARD_DIM} from "@/components/Constants";
 
 type MVProps = JSX.IntrinsicElements["model-viewer"];
 
@@ -19,7 +19,7 @@ export default function Car360WithOrbit() {
     const [current, setCurrent] = useState(0);           // index that sits in the center slot
     const [paused, setPaused] = useState(false);
 
-    const { theme, systemTheme } = useTheme();
+    const {theme, systemTheme} = useTheme();
     const [mounted, setMounted] = useState(false);
 
     // indices for the 5 visible cards: [-2, -1, 0, +1, +2] around current
@@ -47,7 +47,6 @@ export default function Car360WithOrbit() {
         <section className="relative">
             <div className="relative mx-auto max-w-6xl px-4">
                 <div className="relative h-[520px] sm:h-[560px] md:h-[620px]">
-
                     {/* Car (under the cards) */}
                     <div className="absolute inset-0 z-10">
                         <ModelViewer
@@ -59,7 +58,11 @@ export default function Car360WithOrbit() {
                             rotation-per-second="10deg"
                             exposure="1.0"
                             shadow-intensity="2"
-                            style={{ width: "100%", height: "100%", background: "transparent" }}
+                            style={{
+                                width: "100%",
+                                height: "100%",
+                                background: "transparent",
+                                transform: "scale(1.3) translateY(50px)", }}
                             ar
                             ar-modes="webxr scene-viewer quick-look"
                             poster=""
@@ -85,10 +88,10 @@ export default function Car360WithOrbit() {
                                         key={key}
                                         layout
                                         className="pointer-events-auto"
-                                        style={{ width: slot.w, height: slot.h, zIndex: slot.z }}
-                                        initial={{ opacity: 0, y: 24, scale: 0.95 }}
-                                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                                        transition={{ type: "spring", stiffness: 420, damping: 38 }}
+                                        style={{width: slot.w, height: slot.h, zIndex: slot.z}}
+                                        initial={{opacity: 0, y: 24, scale: 0.95}}
+                                        animate={{opacity: 1, y: 0, scale: 1}}
+                                        transition={{type: "spring", stiffness: 420, damping: 38}}
                                         onClick={() => setCurrent(indices[slotIdx])}
                                         role="button"
                                         aria-pressed={isCenter}
@@ -110,11 +113,37 @@ export default function Car360WithOrbit() {
                         </motion.div>
                     </div>
 
-                    {/* subtle glow behind the active (center) card */}
-                    <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-[22%] z-10 hidden md:block">
+                    {/* -----------  Glow + tilted rings behind the active (center) card ----------------- */}
+                    <div
+                        className="pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-[22%] z-10 hidden md:block">
+                        {/* Glow */}
                         <div className="h-[280px] w-[420px] translate-y-[40%] blur-3xl rounded-full
-                    bg-emerald-400/20 dark:bg-emerald-500/20" />
+                 bg-emerald-400/20 dark:bg-emerald-500/20"/>
+
+                        {/* Tilted Rings */}
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            {/* Steady rings */}
+                            <div
+                                className="absolute h-[380px] w-[380px] rounded-full border border-emerald-400/40 dark:border-emerald-500/40"
+                                style={{transform: "perspective(800px) rotateX(55deg)"}}
+                            />
+                            <div
+                                className="absolute h-[460px] w-[460px] rounded-full border border-emerald-400/20 dark:border-emerald-500/20"
+                                style={{transform: "perspective(800px) rotateX(55deg)"}}
+                            />
+
+                            {/* Ping rings */}
+                            <div
+                                className="absolute h-[520px] w-[520px] rounded-full border border-emerald-400/30 dark:border-emerald-500/30 animate-ping"
+                                style={{transform: "perspective(800px) rotateX(55deg)"}}
+                            />
+                            <div
+                                className="absolute h-[620px] w-[620px] rounded-full border border-emerald-400/10 dark:border-emerald-500/10 animate-ping"
+                                style={{transform: "perspective(800px) rotateX(55deg)"}}
+                            />
+                        </div>
                     </div>
+                    {/* -----------  End ----------------- */}
 
                     {/* dots row */}
                     <div className="absolute left-1/2 -translate-x-1/2 bottom-[12%] z-30 hidden md:flex gap-2">

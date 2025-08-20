@@ -84,7 +84,7 @@ export const CARD_BASE =
 
 export const CARD_ACTIVE =
     // brighter surface, stronger ring/shadow, slight scale-up
-    "bg-white/95 dark:bg-slate-900/95 ring-2 ring-cyan-500/60 " +
+    "bg-white/95 dark:bg-slate-900/95 ring-2 ring-emerald-500/60 " +
     "shadow-xl md:shadow-2xl scale-[1.04] md:scale-[1.07] " +
     "text-gray-900 dark:text-slate-50 p-2";
 
