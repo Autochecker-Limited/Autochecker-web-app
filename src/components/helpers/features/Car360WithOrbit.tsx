@@ -62,7 +62,8 @@ export default function Car360WithOrbit() {
                                 width: "100%",
                                 height: "100%",
                                 background: "transparent",
-                                transform: "scale(1.3) translateY(50px)", }}
+                                transform: "scale(1.3) translateY(55px)",
+                            }}
                             ar
                             ar-modes="webxr scene-viewer quick-look"
                             poster=""
@@ -114,35 +115,37 @@ export default function Car360WithOrbit() {
                     </div>
 
                     {/* -----------  Glow + tilted rings behind the active (center) card ----------------- */}
-                    <div
-                        className="pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-[22%] z-10 hidden md:block">
-                        {/* Glow */}
-                        <div className="h-[280px] w-[420px] translate-y-[40%] blur-3xl rounded-full
-                 bg-emerald-400/20 dark:bg-emerald-500/20"/>
 
-                        {/* Tilted Rings */}
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            {/* Steady rings */}
+                    {/* glow + tilted rings (behind car, visible on all screens) */}
+                    <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 bottom-[30%] z-0 block">
+                        <div className="[perspective:900px] relative">
                             <div
-                                className="absolute h-[380px] w-[380px] rounded-full border border-emerald-400/40 dark:border-emerald-500/40"
-                                style={{transform: "perspective(800px) rotateX(55deg)"}}
-                            />
-                            <div
-                                className="absolute h-[460px] w-[460px] rounded-full border border-emerald-400/20 dark:border-emerald-500/20"
-                                style={{transform: "perspective(800px) rotateX(55deg)"}}
-                            />
+                                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                 h-[300px] md:h-[560px] aspect-square"
+                                style={{ transform: "rotateX(42deg) scaleY(1.10)" }}
+                            >
+                                {/* glow */}
+                                <div className="absolute inset-0 rounded-full blur-3xl
+                      bg-emerald-400/20 dark:bg-emerald-500/20" />
 
-                            {/* Ping rings */}
-                            <div
-                                className="absolute h-[520px] w-[520px] rounded-full border border-emerald-400/30 dark:border-emerald-500/30 animate-ping"
-                                style={{transform: "perspective(800px) rotateX(55deg)"}}
-                            />
-                            <div
-                                className="absolute h-[620px] w-[620px] rounded-full border border-emerald-400/10 dark:border-emerald-500/10 animate-ping"
-                                style={{transform: "perspective(800px) rotateX(55deg)"}}
-                            />
+                                {/* STEADY RINGS (2) */}
+                                <div className="absolute inset-0 rounded-full border
+                      border-emerald-400/40 dark:border-emerald-500/40" />
+                                <div className="absolute inset-0 rounded-full m-6 md:m-12 border
+                      border-emerald-400/25 dark:border-emerald-500/25" />
+
+                                {/* PING RINGS (2) */}
+                                <div className="absolute inset-0 rounded-full border
+                      border-emerald-400/25 dark:border-emerald-500/25
+                      animate-ping [animation-duration:3.2s]" />
+                                <div className="absolute inset-0 rounded-full m-8 md:m-16 border
+                      border-emerald-400/15 dark:border-emerald-500/15
+                      animate-ping [animation-duration:4.2s]" />
+                            </div>
                         </div>
                     </div>
+
+
                     {/* -----------  End ----------------- */}
 
                     {/* dots row */}
