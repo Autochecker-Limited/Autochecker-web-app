@@ -3,7 +3,13 @@
 import {topFeatures, stats} from "@/components/Constants";
 import {CheckIcon} from "@/components/Constants/icons";
 import * as motion from "motion/react-client"
+import CountUp from "@/components/ui/CountUp";
 
+
+const parseKS = (k: string) => {
+    const m = k.match(/^(\d+(?:\.\d+)?)(.*)$/);
+    return { value: parseFloat(m?.[1] ?? "0"), suffix: m?.[2] ?? "" };
+};
 
 export default function About() {
 
@@ -32,7 +38,7 @@ export default function About() {
                 About AutoChecker
             </h2>
 
-            <p className="mx-auto mt-3 max-w-3xl text-slate-300">
+            <p className="mx-auto mt-3 max-w-3xl ">
                 AutoChecker delivers <span className="font-bold">trusted vehicle verification</span> in a WhatsApp message.
                 Just share a plate or VIN and get instant results — no extra app needed.
             </p>
@@ -50,8 +56,8 @@ export default function About() {
                 <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 text-cyan-300 ring-1 ring-white/10">
                   {f.icon}
                 </div>
-                <h3 className="text-base font-semibold text-white">{f.title}</h3>
-                <p className="mt-1 text-sm text-slate-300">{f.desc}</p>
+                <h3 className="text-base font-semibold ">{f.title}</h3>
+                <p className="mt-1 text-sm ">{f.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -67,7 +73,7 @@ export default function About() {
               <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-3 ring-1 ring-white/10 shadow-[0_20px_60px_rgba(2,6,23,.55)]">
                 {/* substitute with your image in /public/about-illustration.png */}
                 <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-[#0f172a] via-[#0b1220] to-[#0b1530]">
-                  <div className="grid h-full place-items-center text-slate-500">
+                  <div className="grid h-full place-items-center">
                     {/* placeholder ui */}
                     <MiniMock />
                   </div>
@@ -80,23 +86,21 @@ export default function About() {
               <p className="text-[11px] font-semibold tracking-[.18em] text-cyan-300">
                 WHO WE ARE
               </p>
-              <h3 className="mt-2 text-2xl font-extrabold leading-snug text-white sm:text-3xl">
-                Reduce risk. Be productive. <span className="text-cyan-300">Buy wisely.</span>
+              <h3 className="mt-2 text-2xl font-extrabold leading-snug  sm:text-3xl">
+                  Every car has a story. <span className="text-cyan-300"> We tell it </span> !
               </h3>
-              <p className="mt-3 text-slate-300">
-                We protect buyers and empower dealers with fast, verified data. From real-time
-                checks to trusted alternatives, AutoChecker keeps the experience transparent and
-                convenient — directly in WhatsApp.
+              <p className="my-4 text-sm" style={{ lineHeight: "1.5rem" }}>
+                 We delivers fast, verified checks and trusted alternatives — keeping buying and selling transparent and convenient, right in WhatsApp.
               </p>
 
-              <ul className="mt-5 space-y-2">
+              <ul className="mt-5 space-y-2 text-gray-500 ibm-plex-mono-regular">
                 {[
                   "Instant history reports by plate or VIN.",
                   "Actionable results — alert if stolen, suggest if unsafe.",
                   "Dealer integrations to verify inventory and build trust.",
                   "No learning curve: it’s all inside WhatsApp.",
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-sm text-slate-200">
+                  <li key={idx} className="flex items-start gap-3 text-sm ">
                     <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-300 ring-1 ring-emerald-400/30">
                       <CheckIcon />
                     </span>
@@ -123,17 +127,19 @@ export default function About() {
           </div>
 
           {/* Stats strip */}
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {stats.map((s, i) => (
-              <div
-                key={i}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-5 text-center ring-1 ring-white/10"
-              >
-                <div className="text-2xl font-extrabold text-white">{s.k}</div>
-                <div className="mt-1 text-sm text-slate-300">{s.label}</div>
-              </div>
-            ))}
-          </div>
+            <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 ">
+                {stats.map((s, i) => {
+                    const { value, suffix } = parseKS(s.k);
+                    return (
+                        <div key={i} className="px-6 py-5 text-center ">
+                            <div className="text-2xl font-extrabold">
+                                <CountUp end={value} suffix={suffix} duration={1.5} />
+                            </div>
+                            <div className="mt-1 text-sm text-gray-500 ibm-plex-mono-medium">{s.label}</div>
+                        </div>
+                    );
+                })}
+            </div>
         </div>
       </section>
     );
