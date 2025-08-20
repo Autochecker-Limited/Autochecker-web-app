@@ -95,14 +95,16 @@ export default function HowItWorks() {
       <div className="mx-auto max-w-7xl px-4 py-16 md:px-6 md:py-20">
         {/* Header */}
         <div className="text-center">
-          <p className="text-sm font-semibold bg-gradient-to-r from-emerald-300 to-cyan-300 bg-clip-text text-transparent">
+          <p className="text-sm font-semibold bg-gradient-to-r from-emerald-500 to-cyan-500 bg-clip-text text-transparent">
             The AutoChecker Platform
           </p>
-          <h2 className="mt-1 text-4xl font-extrabold text-white sm:text-5xl">
+          <h2 className="mt-1 text-4xl font-extrabold sm:text-5xl">
             How It Works — Right Inside WhatsApp
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-slate-300">
-            Real-time accident & theft checks, trusted alternatives, and dealer integrations — all via WhatsApp.
+          <p className="mx-auto mt-3 max-w-2xl text-slate-500 " style={{ lineHeight: "1.9rem" }}>
+            Real-time accident & theft checks, trusted alternatives, and dealer integrations.
+              <br/>
+              <span className={`block mt-4 font-bold uppercase`}> Drive with confidence, buy with trust. </span>
           </p>
         </div>
 
@@ -128,11 +130,13 @@ export default function HowItWorks() {
           </Reveal>
 
           {/* floor shadow */}
-          <div className="pointer-events-none absolute -bottom-4 left-1/2 h-6 w-[70%] -translate-x-1/2 rounded-full bg-black/40 blur-2xl opacity-40" />
+          <div className="pointer-events-none absolute -bottom-4 left-1/2 h-6 w-[70%] -translate-x-1/2 rounded-full
+          bg-black/40 blur-2xl opacity-40" />
 
           {/* WhatsApp badge */}
           <Reveal from="left" delay={160} className="absolute -right-4 top-6 hidden md:block">
-            <div className="grid h-10 w-10 place-items-center rounded-full bg-emerald-500 text-slate-950 shadow-[0_0_24px_rgba(16,185,129,.45)] ring-1 ring-white/10">
+            <div className="grid h-10 w-10 place-items-center rounded-full bg-emerald-500
+            text-slate-950 shadow-[0_0_24px_rgba(16,185,129,.45)] ring-1 ring-white/10">
               <WhatsappGlyph />
             </div>
           </Reveal>
@@ -287,7 +291,7 @@ function StepBubble({
       className={`group rounded-2xl border border-white/10 bg-white/[0.05] p-4 ring-1 ring-white/10 shadow-sm backdrop-blur-sm transition hover:shadow-[0_0_32px_rgba(34,211,238,.18)] ${tint}`}
     >
       <div className="flex items-start gap-3">
-        <div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-black/40 ring-1 ring-white/10">
+        <div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-black/50 ring-1 ring-white/10">
           <div
             className={`pointer-events-none absolute -inset-2 rounded-xl blur-md ${
               accent === "emerald" ? "bg-emerald-500/25" : "bg-cyan-500/25"
@@ -298,9 +302,9 @@ function StepBubble({
         <div>
           <div className="flex items-center gap-2">
             <span className={`rounded-md px-1.5 py-0.5 text-[10px] font-bold ring-1 ${pill}`}>{k}</span>
-            <h3 className="text-sm font-semibold text-white">{title}</h3>
+            <h3 className="text-sm font-semibold">{title}</h3>
           </div>
-          <p className="mt-1 text-[13px] leading-snug text-slate-300">{text}</p>
+          <p className="mt-1 text-[13px] leading-snug text-slate-500">{text}</p>
         </div>
       </div>
     </div>
