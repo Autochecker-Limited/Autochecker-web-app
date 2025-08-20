@@ -10,6 +10,8 @@ html {
 }
 body { font-family: var(--font-inter), ui-sans-serif, system-ui; }
 
+
+
 /* navbar links */
 .nav-link { @apply text-slate-300 hover:text-cyan-300 transition; }
 

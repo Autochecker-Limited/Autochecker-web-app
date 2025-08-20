@@ -18,7 +18,7 @@ export default function FooterCTA() {
   };
 
   return (
-    <footer className="bg-slate-950 text-white">
+    <section id="contact" className="bg-slate-950 text-white">
       {/* CTA + Form */}
       <div className="mx-auto max-w-6xl gap-8 px-6 py-12 text-center md:flex md:items-start md:justify-between md:text-left">
         <div className="mb-6 flex-1 md:mb-0">
@@ -29,7 +29,7 @@ export default function FooterCTA() {
             Stay informed with the latest vehicle verification updates and trusted dealer offers.
           </p>
 
-          <form onSubmit={handleSubmit} className="mt-4 space-y-3" id="contact">
+          <form onSubmit={handleSubmit} className="mt-4 space-y-3" >
             <input
               type="text"
               name="name"
@@ -107,6 +107,6 @@ export default function FooterCTA() {
       <div className="mx-auto max-w-6xl border-t border-slate-800 px-6 py-4 text-center text-sm text-gray-500">
         © {new Date().getFullYear()} AutoChecker. All rights reserved.
       </div>
-    </footer>
+    </section>
   );
 }
