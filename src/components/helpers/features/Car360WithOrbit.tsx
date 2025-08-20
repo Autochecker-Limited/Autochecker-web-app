@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion"
+import { useTheme} from "next-themes";
 import FeatureCard from "@/components/helpers/features/FeatureCard";
 import {f_features, SLOTS, CARD_BASE,CARD_ACTIVE, CARD_DIM } from "@/components/Constants";
 
@@ -18,11 +19,17 @@ export default function Car360WithOrbit() {
     const [current, setCurrent] = useState(0);           // index that sits in the center slot
     const [paused, setPaused] = useState(false);
 
+    const { theme, systemTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
+
     // indices for the 5 visible cards: [-2, -1, 0, +1, +2] around current
     const indices = useMemo(
         () => [-2, -1, 0, 1, 2].map(k => (current + k + n) % n),
         [current, n]
     );
+
+    // Avoid hydration mismatch
+    useEffect(() => setMounted(true), []);
 
     // autoplay
     useEffect(() => {
@@ -30,6 +37,11 @@ export default function Car360WithOrbit() {
         const id = setInterval(() => setCurrent(c => (c + 1) % n), 3500);
         return () => clearInterval(id);
     }, [paused, n]);
+
+    if (!mounted) return null;
+
+    const currentTheme = theme === "system" ? systemTheme : theme;
+    const modelSrc = currentTheme === "dark" ? "/models/bmw_vision.glb" : "/models/bmw_i8.glb";
 
     return (
         <section className="relative">
@@ -39,7 +51,7 @@ export default function Car360WithOrbit() {
                     {/* Car (under the cards) */}
                     <div className="absolute inset-0 z-10">
                         <ModelViewer
-                            src="/models/bmw_i8.glb"
+                            src={modelSrc}
                             alt="3D BMW Vision"
                             camera-controls
                             auto-rotate

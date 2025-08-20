@@ -80,13 +80,13 @@ export const SLOTS = [
 
 
 export const CARD_BASE =
-    "rounded-2xl overflow-hidden backdrop-blur-md transition-all duration-300 will-change-transform";
+    "rounded-2xl overflow-hidden backdrop-blur-md transition-all duration-300 will-change-transform ";
 
 export const CARD_ACTIVE =
     // brighter surface, stronger ring/shadow, slight scale-up
     "bg-white/95 dark:bg-slate-900/95 ring-2 ring-cyan-500/60 " +
     "shadow-xl md:shadow-2xl scale-[1.04] md:scale-[1.07] " +
-    "text-slate-900 dark:text-slate-50";
+    "text-gray-900 dark:text-slate-50 p-2";
 
 export const CARD_DIM =
     // muted surface and text, softer ring
