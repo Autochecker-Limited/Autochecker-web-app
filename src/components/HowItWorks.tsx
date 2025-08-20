@@ -1,21 +1,24 @@
 "use client";
 
-import { useEffect, useRef, useState, PropsWithChildren } from "react";
+import React, { useEffect, useRef, useState, PropsWithChildren } from "react";
 
 /* ---------- Tiny reveal wrapper (fade + slide on scroll) ---------- */
+
+type RevealProps = PropsWithChildren<{
+  from?: "up" | "down" | "left" | "right";
+  delay?: number;
+  as?: React.ElementType;
+  className?: string;
+}>;
+
 function Reveal({
   children,
   from = "up",
   delay = 0,
   as: Tag = "div",
   className = "",
-}: PropsWithChildren<{
-  from?: "up" | "down" | "left" | "right";
-  delay?: number;
-  as?: any;
-  className?: string;
-}>) {
-  const ref = useRef<HTMLDivElement | null>(null);
+}: RevealProps) {
+  const ref = useRef<HTMLElement | null>(null);
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -25,9 +28,9 @@ function Reveal({
       (ents) => {
         ents.forEach((e) => {
           if (e.isIntersecting) {
-            // slight delay for stagger
             const t = setTimeout(() => setShow(true), delay);
             io.unobserve(e.target);
+            // cleanup for this timeout
             return () => clearTimeout(t);
           }
         });
@@ -49,7 +52,8 @@ function Reveal({
 
   return (
     <Tag
-      ref={ref}
+      // cast to a concrete HTMLElement ref type (no `any`)
+      ref={ref as React.Ref<HTMLElement>}
       className={[
         "transition duration-700 ease-out will-change-transform will-change-opacity",
         show ? "opacity-100 translate-x-0 translate-y-0" : `opacity-0 ${start}`,
@@ -65,12 +69,12 @@ function Reveal({
 
 export default function HowItWorks() {
   const steps = [
-    { k: "01", title: "Initiate Check", text: "Send a message to Autochecker’s WhatsApp bot.", icon: PhoneIcon() },
-    { k: "02", title: "Send Plate or VIN", text: "Provide the vehicle’s registration number or VIN.", icon: SearchIcon() },
-    { k: "03", title: "Data Retrieval", text: "Verified lookup from NTSA & proprietary records.", icon: AntennaIcon() },
-    { k: "04", title: "Instant Report", text: "Accident, theft, and ownership history in seconds.", icon: ReportIcon() },
-    { k: "05", title: "Smart Actions", text: "If stolen → broadcast alert. If unsafe → show safe alternatives.", icon: ActionsIcon() },
-    { k: "06", title: "Dealer Integration", text: "Connect with trusted dealerships for safe options.", icon: StoreIcon() },
+    { k: "01", title: "Initiate Check", text: "Send a message to Autochecker’s WhatsApp bot.", icon: <PhoneIcon /> },
+    { k: "02", title: "Send Plate or VIN", text: "Provide the vehicle’s registration number or VIN.", icon: <SearchIcon /> },
+    { k: "03", title: "Data Retrieval", text: "Verified lookup from NTSA & proprietary records.", icon: <AntennaIcon /> },
+    { k: "04", title: "Instant Report", text: "Accident, theft, and ownership history in seconds.", icon: <ReportIcon /> },
+    { k: "05", title: "Smart Actions", text: "If stolen → broadcast alert. If unsafe → show safe alternatives.", icon: <ActionsIcon /> },
+    { k: "06", title: "Dealer Integration", text: "Connect with trusted dealerships for safe options.", icon: <StoreIcon /> },
   ];
 
   return (
@@ -138,12 +142,7 @@ export default function HowItWorks() {
         <div className="mx-auto mt-12 max-w-5xl">
           <div className="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {steps.map((s, i) => (
-              <Reveal
-                key={s.k}
-                from={i % 3 === 0 ? "up" : i % 3 === 1 ? "up" : "up"}
-                delay={i * 60}
-                className="h-full"
-              >
+              <Reveal key={s.k} from="up" delay={i * 60} className="h-full">
                 <StepBubble {...s} accent={i % 2 === 0 ? "cyan" : "emerald"} />
               </Reveal>
             ))}
@@ -156,6 +155,8 @@ export default function HowItWorks() {
 
 /* ------------------ Desktop mock ------------------ */
 function DesktopCard() {
+  type CSSVarC = React.CSSProperties & { ["--c"]?: string };
+
   return (
     <div className="relative hidden w-[720px] shrink-0 rounded-3xl border border-white/10 bg-[#0b1220] p-5 ring-1 ring-white/10 shadow-[0_10px_60px_rgba(2,6,23,.6)] md:block">
       {/* top bar */}
@@ -165,7 +166,7 @@ function DesktopCard() {
           <span className="h-2.5 w-2.5 rounded-full bg-amber-400/80" />
           <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
         </div>
-        <span className="ml-2 text-sm font-semibold text-white">AutChecker</span>
+        <span className="ml-2 text-sm font-semibold text-white">AutoChecker</span>
         <div className="ml-auto flex items-center gap-2">
           <div className="h-5 w-24 rounded bg-white/5" />
           <div className="h-5 w-5 rounded bg-white/10" />
@@ -187,7 +188,7 @@ function DesktopCard() {
         {["#22d3ee", "#34d399", "#38bdf8"].map((c, i) => (
           <div key={i} className="rounded-2xl border border-white/10 bg-white/[0.02] p-4 text-center ring-1 ring-white/10">
             <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-black/40 ring-1 ring-white/10">
-              <div className="h-8 w-12 rounded bg-[color:var(--c)]" style={{ ["--c" as any]: c }} />
+              <div className="h-8 w-12 rounded" style={{ ["--c"]: c } as CSSVarC} />
             </div>
             <div className="mt-2 text-xs font-semibold text-slate-300">Trusted Alternatives</div>
             <div className="text-[10px] text-slate-400">AI picks from verified dealers</div>

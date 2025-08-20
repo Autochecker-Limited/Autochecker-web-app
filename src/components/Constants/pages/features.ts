@@ -48,7 +48,7 @@ export const f_features = [
     },
     {
         title: "Secure Data",
-        desc: "Verified sources: government/AutoChecker databases + proprietary records.",
+        desc: "Verified sources: government / AutoChecker databases + proprietary records.",
         icon: ShieldIcon(),
         color: "emerald",
     },

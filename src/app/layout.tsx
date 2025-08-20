@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import { ThemeProvider } from "@/components/helpers/theme-provider";
+import ThemeProvider from "@/components/helpers/theme-provider";
 import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import Script from "next/script";
 

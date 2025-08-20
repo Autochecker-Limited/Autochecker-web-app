@@ -1,4 +1,4 @@
 //@/components/Constants/index.ts
 export * from "@/components/Constants/pages/about"
 export * from "@/components/Constants/pages/features"
-export * from "@/components/Constants/pages/navbar"
+// export * from "@/components/Constants/pages/navbar"
