@@ -91,9 +91,9 @@ export default function Navbar() {
                         href="https://wa.me/254712345678?text=Hello%20AutoChecker,%20I%20want%20to%20check%20a%20car"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hidden md:inline-block rounded-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-sky-400 px-4 py-2 text-sm font-semibold text-slate-950 shadow-lg hover:from-emerald-300 hover:via-cyan-300 hover:to-sky-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300"
+                        className="hidden md:inline-block rounded-md bg-gradient-to-r from-emerald-400 via-cyan-400 to-sky-400 px-4 py-2 text-sm font-semibold  shadow-lg hover:from-emerald-300 hover:via-cyan-300 hover:to-sky-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300"
                     >
-                        Check a Car Now
+                        Check Now !
                     </a>
 
                     {/* Mobile menu button */}
@@ -132,9 +132,9 @@ export default function Navbar() {
                                 href="https://wa.me/254712345678?text=Hello%20AutoChecker,%20I%20want%20to%20check%20a%20car"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="rounded-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-sky-400 px-5 py-2 text-sm font-semibold text-slate-950 shadow-lg hover:from-emerald-300 hover:via-cyan-300 hover:to-sky-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300"
+                                className="rounded-md bg-gradient-to-r from-emerald-400 via-cyan-400 to-sky-400 px-5 py-2 text-sm font-semibold text-slate-950 shadow-lg hover:from-emerald-300 hover:via-cyan-300 hover:to-sky-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300"
                             >
-                                Check a Car Now
+                                Check Now !
                             </a>
                         </li>
                     </ul>

@@ -13,33 +13,33 @@ export default function Hero() {
         
         {/* Left copy */}
         <div className="relative z-10">
-          <p className="mb-4 inline-block rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-[11px] font-semibold text-cyan-300">
+          <p className="mb-4 inline-block rounded-full border border-cyan-400/20 bg-cyan-400/10 px-3 py-1 text-[11px] font-semibold text-cyan-500">
             WhatsApp-first • Instant Results
           </p>
 
           <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl">
-            Verify Before You Buy —{" "}
+              Know the car. Trust the deal —{" "}
             <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-sky-400 bg-clip-text text-transparent">
               Right from WhatsApp
             </span>
           </h1>
 
-          <p className="mt-4 max-w-xl text-slate-300">
-            Run theft, accident, and ownership checks in seconds. Send a plate or VIN in WhatsApp —
-            we return trusted results instantly.
+          <p className="mt-4 max-w-xl text-gray-500 " style={{ lineHeight: "1.8rem" }}>
+            Run theft, accident, and ownership checks in seconds. Share a plate or VIN on Whatsapp —
+              receive verified results instantly.
           </p>
 
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="https://wa.me/"
-              className="rounded-xl bg-emerald-500 px-5 py-3 text-sm font-semibold text-slate-950 shadow-emerald hover:bg-emerald-400"
+              className="rounded-xl bg-emerald-400 px-5 py-3 text-sm font-semibold text-slate-850 shadow-emerald hover:bg-emerald-400 flex items-center gap-2"
             >
-              Start Check on WhatsApp
+                Start Now <span aria-hidden="true">→</span>
             </a>
             <a
               href="#how"
-              className="rounded-xl border border-cyan-400/30 px-5 py-3 text-sm font-semibold text-cyan-300 hover:bg-cyan-400/10"
+              className="rounded-xl border border-cyan-400/30 px-5 py-3 text-sm font-semibold text-cyan-500 hover:bg-cyan-400/10"
             >
               See How It Works
             </a>
