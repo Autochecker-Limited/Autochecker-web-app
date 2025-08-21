@@ -33,7 +33,7 @@ export default function Hero() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="https://wa.me/"
-              className="rounded-xl bg-emerald-400 px-5 py-3 text-sm font-semibold text-slate-850 shadow-emerald hover:bg-emerald-400 flex items-center gap-2"
+              className="rounded-xl bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-850 shadow-emerald hover:bg-cyan-400 flex items-center gap-2"
             >
                 Start Now <span aria-hidden="true">→</span>
             </a>

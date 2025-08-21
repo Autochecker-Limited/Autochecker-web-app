@@ -19,7 +19,7 @@ export default function Car360WithOrbit() {
     const [current, setCurrent] = useState(0);           // index that sits in the center slot
     const [paused, setPaused] = useState(false);
 
-    const {theme, systemTheme} = useTheme();
+    //const {theme, systemTheme} = useTheme();
     const [mounted, setMounted] = useState(false);
 
     // indices for the 5 visible cards: [-2, -1, 0, +1, +2] around current
@@ -40,8 +40,8 @@ export default function Car360WithOrbit() {
 
     if (!mounted) return null;
 
-    const currentTheme = theme === "system" ? systemTheme : theme;
-    const modelSrc = currentTheme === "dark" ? "/models/car_light.glb" : "/models/car_dark.glb";
+   // const currentTheme = theme === "system" ? systemTheme : theme;
+    //const modelSrc = currentTheme === "dark" ? "/models/car_light.glb" : "/models/car_dark.glb";
 
     return (
         <section className="relative">

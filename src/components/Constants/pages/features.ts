@@ -18,37 +18,37 @@ export interface Feature {
 export const f_features = [
     {
         title: "Real-Time Reports",
-        desc: "Instant accident & stolen checks by sending a number plate or VIN.",
+        desc: "Get instant accident, theft, and ownership checks — just send a plate or VIN.",
         icon: BoltIcon(),
         color: "cyan",
     },
     {
         title: "Smart Car Suggestions",
-        desc: "If a vehicle fails checks, we propose safe alternatives from verified dealers.",
+        desc: "If a car doesn’t pass checks, we suggest safe alternatives from trusted dealers.",
         icon: SparklesIcon(),
         color: "emerald",
     },
     {
         title: "Stolen Car Alerts",
-        desc: "Broadcast stolen car details across the Autochecker WhatsApp network.",
+        desc: "Broadcast stolen vehicle details instantly across the AutoChecker WhatsApp network.",
         icon: SirenIcon(),
         color: "cyan",
     },
     {
         title: "Zero Learning Curve",
-        desc: "No app to install. Everything happens in WhatsApp.",
+        desc: "No new app to learn — everything works seamlessly inside WhatsApp.",
         icon: WhatsappIcon(),
         color: "emerald",
     },
     {
         title: "Dealer Integration",
-        desc: "Dealers verify inventory, build trust, and reach verified buyers.",
+        desc: "Verified dealers showcase trusted inventory and connect with serious buyers.",
         icon: StoreIconF(),
         color: "cyan",
     },
     {
         title: "Secure Data",
-        desc: "Verified sources: government / AutoChecker databases + proprietary records.",
+        desc: "All checks run on verified  sources and proprietary AutoChecker records.",
         icon: ShieldIcon(),
         color: "emerald",
     },
@@ -84,7 +84,7 @@ export const CARD_BASE =
 
 export const CARD_ACTIVE =
     // brighter surface, stronger ring/shadow, slight scale-up
-    "bg-white/95 dark:bg-slate-900/95 ring-2 ring-emerald-500/60 " +
+    "bg-white/95 dark:bg-gray-900/95 ring-1 ring-emerald-500/60 " +
     "shadow-xl md:shadow-2xl scale-[1.04] md:scale-[1.07] " +
     "text-gray-900 dark:text-slate-50 p-2";
 

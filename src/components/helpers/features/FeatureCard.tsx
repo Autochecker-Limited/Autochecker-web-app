@@ -21,9 +21,9 @@ export default function FeatureCard({title, desc, icon, color = "cyan"}: Feature
     return (
         <div
             className={cn(
-                "relative rounded-2xl p-6 bg-gradient-to-br from-gray-200/20 to-gray-300/50",
+                "relative rounded-2xl p-6 bg-gradient-to-br from-gray-200/20 to-gray-300/20",
                 "border shadow-lg hover:shadow-xl transition",
-                "border-gray-200/50 dark:border-gray-100/30 text-gray-500 dark:text-gray-300",
+                "border-gray-200/50 dark:border-gray-100/30 ",
             )}
         >
             {/* Icon bubble */}
@@ -37,11 +37,10 @@ export default function FeatureCard({title, desc, icon, color = "cyan"}: Feature
             </div>
 
             {/* Title */}
-            <h3 className="text-lg font-semibold mb-2">{title}</h3>
+            <h3 className="text-lg font-semibold mb-2 ibm-plex-mono-bold">{title}</h3>
 
             {/* Description */}
-            <p className="text-sm leading-relaxed
-               text-slate-800 dark:text-slate-200">
+            <p className="text-sm leading-relaxed ">
                 {desc}
             </p>
         </div>
