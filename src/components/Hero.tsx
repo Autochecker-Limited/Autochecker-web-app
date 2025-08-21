@@ -39,12 +39,13 @@ export default function Hero() {
               >
                   Start Now <span aria-hidden="true">→</span>
               </a>
-            <a
-              href="#how"
-              className="rounded-xl border border-cyan-400/30 px-5 py-3 text-sm font-semibold text-cyan-500 hover:bg-cyan-400/10"
-            >
-              See How It Works
-            </a>
+              <a
+                  href="#how"
+                  className="rounded-xl border border-cyan-400/30 px-5 py-3 text-sm font-semibold
+               text-cyan-600 hover:bg-cyan-400/10 dark:text-cyan-300"
+              >
+                  See How It Works
+              </a>
           </div>
         </div>
 
