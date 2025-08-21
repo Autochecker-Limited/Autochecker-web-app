@@ -45,45 +45,61 @@ export default function Pricing() {
                         {PRICING_SUBTITLE}
                     </p>
 
-
-                    {/* Free theft-report chips (no box) */}
-                    <div className="mx-auto mt-6 flex max-w-4xl flex-wrap items-center justify-center gap-2 sm:gap-2.5">
-                        {/* price pill */}
-                        <span
-                            className="inline-flex items-center gap-1 rounded-full
-               bg-gradient-to-r from-cyan-100/70 to-emerald-100/70 px-3 py-1
-               text-[11px] font-extrabold text-slate-800 ring-1 ring-cyan-300/40
-               dark:bg-transparent dark:text-cyan-200 dark:ring-cyan-400/40">
-    🚨 KSh 0 <span className="font-semibold opacity-80">Theft report</span>
-  </span>
-
-                        {/* feature chips (ghost) */}
-                        <span className="rounded-full border border-slate-300/70 bg-white/60 px-2.5 py-1 text-[11px] text-slate-700
-                           dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-200">
-            Instant WhatsApp intake
-          </span>
-                        <span className="rounded-full border border-slate-300/70 bg-white/60 px-2.5 py-1 text-[11px] text-slate-700
-                           dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-200">
-            Broadcast to partner network
-          </span>
-                        <span className="rounded-full border border-slate-300/70 bg-white/60 px-2.5 py-1 text-[11px] text-slate-700
-                           dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-200">
-            Share poster to groups
-          </span>
-                        <span className="rounded-full border border-slate-300/70 bg-white/60 px-2.5 py-1 text-[11px] text-slate-700
-                           dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-200">
-            Real-time update &amp; takedown
-  </span>
-
-                        {/* light CTA pill */}
-                        <a
-                            href="https://wa.me/"
-                            className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400  px-3 py-1 text-[11px] font-semibold
-               text-slate-950 hover:bg-emerald-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300">
-                            Start free <span aria-hidden>→</span>
-                        </a>
+                    {/* Divider (top) */}
+                    <div className="mx-auto mt-8 w-full max-w-5xl">
+                        <div className="h-px bg-gradient-to-r from-transparent via-slate-200/70 to-transparent dark:via-white/10" />
                     </div>
 
+                    {/* Theft report highlight (stacked: pill → chips → CTA) */}
+                    <div className="mx-auto mt-8 max-w-5xl space-y-3 text-center">
+                        {/* 1) PRICE PILL — top */}
+                        <div className="flex justify-center">
+    <span
+        className="inline-flex items-center gap-1 rounded-full
+                 bg-gradient-to-r from-cyan-100/20 to-emerald-100/20 px-3 py-1
+                 text-[11px] font-extrabold text-slate-800 ring-1 ring-cyan-300/40
+                 dark:bg-transparent dark:text-cyan-200 dark:ring-cyan-400/40">
+      🚨 KSh 0 <span className="font-semibold opacity-80">Theft report</span>
+    </span>
+                        </div>
+
+                        {/* 2) FEATURE CHIPS — middle (wrap) */}
+                        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+    <span className="rounded-full border border-slate-200/60 bg-white/50 px-2.5 py-1 text-[11px] text-slate-700
+                     dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-200">
+      Instant WhatsApp intake
+    </span>
+                            <span className="rounded-full border border-slate-200/60 bg-white/50 px-2.5 py-1 text-[11px] text-slate-700
+                     dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-200">
+      Broadcast to partner network
+    </span>
+                            <span className="rounded-full border border-slate-200/60 bg-white/50 px-2.5 py-1 text-[11px] text-slate-700
+                     dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-200">
+      Share poster to groups
+    </span>
+                            <span className="rounded-full border border-slate-200/60 bg-white/50 px-2.5 py-1 text-[11px] text-slate-700
+                     dark:border-white/10 dark:bg-white/[0.06] dark:text-slate-200">
+      Real-time update &amp; takedown
+    </span>
+                        </div>
+
+                        {/* 3) CTA — bottom */}
+                        <div className="flex justify-center pt-1">
+                            <a
+                                href="https://wa.me/"
+                                className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 px-3 py-1
+                 text-[11px] font-semibold text-slate-950 hover:from-emerald-300 hover:to-cyan-300
+                 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300">
+                                Start free <span aria-hidden>→</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Divider (bottom) */}
+                    <div className="mx-auto my-8 w-full max-w-5xl">
+                        <div className="h-px bg-gradient-to-r from-transparent via-slate-200/70 to-transparent dark:via-white/10" />
+                    </div>
+                    
 
                     {/* Toggle like the reference */}
                     <div
