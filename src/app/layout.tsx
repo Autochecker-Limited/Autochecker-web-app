@@ -20,13 +20,16 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${spaceGrotesk.variable} ${plexMono.variable} ${inter.variable}`} >
+    <html lang="en"
+          suppressHydrationWarning
+          className={`${spaceGrotesk.variable} ${plexMono.variable} ${inter.variable}`} >
       <body>
-      {/* Load the web component once */}
+      {/* Load the web component once, early, with matching credentials */}
       <Script
           src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
           type="module"
           strategy="beforeInteractive"
+          crossOrigin="anonymous"
       />
 
 

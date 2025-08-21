@@ -90,6 +90,10 @@ body { font-family: var(--font-inter), ui-sans-serif, system-ui; }
     @apply bg-background text-foreground; } }
 
 
+/* globals.css */
+.overscroll-contain {
+    overscroll-behavior: contain;
+}
 /*------------------------------- font class  ------------------------------- */
 /*  -------------- The font --------------------- */
 /*  -- Dancing Script -- */

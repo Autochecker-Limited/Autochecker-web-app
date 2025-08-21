@@ -48,7 +48,7 @@ export default function Car360WithOrbit() {
             <div className="relative mx-auto max-w-6xl px-4">
                 <div className="relative h-[520px] sm:h-[560px] md:h-[620px]">
                     {/* Car (under the cards) */}
-                    <div className="absolute inset-0 z-10">
+                    <div className="absolute inset-0 z-10 overscroll-contain">
                         <ModelViewer
                             src="/models/car_light.glb"
                             alt="3D BMW Vision"
@@ -71,6 +71,7 @@ export default function Car360WithOrbit() {
                             interaction-prompt="none"
                         />
                     </div>
+
 
                     {/* The 5-card row (over the car) */}
                     <div
