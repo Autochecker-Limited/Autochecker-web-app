@@ -31,12 +31,14 @@ export default function Hero() {
 
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="https://wa.me/"
-              className="rounded-xl bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-850 shadow-emerald hover:bg-cyan-400 flex items-center gap-2"
-            >
-                Start Now <span aria-hidden="true">→</span>
-            </a>
+              <a
+                  href="https://wa.me/"
+                  className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-400 to-emerald-400 px-5 py-3
+               text-sm font-semibold text-slate-950 shadow-md hover:from-cyan-300 hover:to-emerald-300
+               dark:text-slate-950"
+              >
+                  Start Now <span aria-hidden="true">→</span>
+              </a>
             <a
               href="#how"
               className="rounded-xl border border-cyan-400/30 px-5 py-3 text-sm font-semibold text-cyan-500 hover:bg-cyan-400/10"
