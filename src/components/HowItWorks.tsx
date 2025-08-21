@@ -126,7 +126,7 @@ export default function HowItWorks() {
 
                     {/* left phone (slightly smaller on small screens) */}
                     <Reveal from="right" delay={40} className="translate-y-2 -rotate-1 scale-95 sm:scale-95 lg:scale-100">
-                        <PhoneCard side="left" />
+                        <PhoneCard side="left" mirror />
                     </Reveal>
 
                     {/* desktop center (cap width so it doesn't crowd) */}
@@ -134,8 +134,8 @@ export default function HowItWorks() {
                         <DesktopCard />
                     </Reveal>
 
-                    {/* right phone */}
-                    <Reveal from="left" delay={80} className="-translate-y-1 rotate-1 scale-95 sm:scale-95 lg:scale-100">
+                    {/* right phone (normal) */}
+                    <Reveal from="left" delay={80} className="-translate-y-1 rotate-1">
                         <PhoneCard side="right" />
                     </Reveal>
 
@@ -222,35 +222,47 @@ function DesktopCard() {
 }
 
 /* ------------------ Phone mock ------------------ */
-function PhoneCard({side}: { side: "left" | "right" }) {
+function PhoneCard({ side, mirror = false }: { side: "left" | "right"; mirror?: boolean }) {
     const accent = side === "left" ? "emerald" : "cyan";
+    const isMirror = mirror ?? side === "left";   // ← ADD THIS
+    const pushEdge = isMirror ? "mr-auto" : "ml-auto";   // ← UPDATE to use isMirror
+
+
+    const primaryBtn =
+        "rounded px-3 py-2 text-center text-xs font-semibold shadow-sm ring-1 focus:outline-none focus-visible:ring-2 " +
+        (accent === "emerald"
+            ? "bg-emerald-500 text-slate-950 hover:bg-emerald-400 ring-emerald-400/40 dark:bg-emerald-500 dark:hover:bg-emerald-400 dark:ring-emerald-400/30"
+            : "bg-cyan-500 text-slate-950 hover:bg-cyan-400 ring-cyan-400/40 dark:bg-cyan-500/90 dark:hover:bg-cyan-400 dark:ring-cyan-400/30");
+
+    const secondaryBtn =
+        "rounded px-3 py-2 text-center text-xs font-semibold border border-slate-300/60 bg-white text-slate-700 ring-1 ring-slate-200/70 hover:bg-slate-100/60 " +
+        "dark:border-white/15 dark:bg-white/[0.03] dark:text-slate-200 dark:ring-white/10 dark:hover:bg-white/[0.06]";
+
     return (
-        <div
-            className={[
-                "relative w-[260px] shrink-0 rounded-[2rem] p-3",
-                "border border-slate-300/60 bg-white ring-1 ring-slate-200/70",
-                "dark:border-white/10 dark:bg-[#0f172a] dark:ring-white/10",
-                accent === "emerald"
-                    ? "shadow-[0_8px_40px_rgba(2,6,23,.08),0_0_36px_rgba(16,185,129,.18)] dark:shadow-[0_10px_50px_rgba(2,6,23,.6),0_0_40px_rgba(16,185,129,.35)]"
-                    : "shadow-[0_8px_40px_rgba(2,6,23,.08),0_0_36px_rgba(34,211,238,.18)] dark:shadow-[0_10px_50px_rgba(2,6,23,.6),0_0_40px_rgba(34,211,238,.35)]",
-            ].join(" ")}
-        >
+        <div className={[
+            "relative w-[260px] shrink-0 rounded-[2rem] p-3",
+            "border border-slate-300/60 bg-white ring-1 ring-slate-200/70",
+            "dark:border-white/10 dark:bg-[#0f172a] dark:ring-white/10",
+            accent === "emerald"
+                ? "shadow-[0_8px_40px_rgba(2,6,23,.08),0_0_36px_rgba(16,185,129,.18)] dark:shadow-[0_10px_50px_rgba(2,6,23,.6),0_0_40px_rgba(16,185,129,.35)]"
+                : "shadow-[0_8px_40px_rgba(2,6,23,.08),0_0_36px_rgba(34,211,238,.18)] dark:shadow-[0_10px_50px_rgba(2,6,23,.6),0_0_40px_rgba(34,211,238,.35)]",
+        ].join(" ")}>
             {/* notch */}
             <div className="mx-auto h-5 w-28 rounded-b-2xl bg-slate-900/5 shadow-[inset_0_-6px_12px_rgba(0,0,0,.08)] dark:bg-black/50 dark:shadow-[inset_0_-6px_12px_rgba(0,0,0,.35)]" />
 
-            {/* header */}
-            <div className="mt-2 flex items-center gap-2 border-b border-slate-200/70 px-2 pb-2 dark:border-white/10">
+            {/* header (mirrored layout when mirror=true) */}
+            <div className={`mt-2 flex items-center gap-2 border-b border-slate-200/70 px-2 pb-2 dark:border-white/10 ${isMirror ? "flex-row-reverse" : ""}`}>
                 <div className={`h-6 w-6 rounded-full ${accent === "emerald" ? "bg-emerald-400" : "bg-cyan-400"} shadow-[0_0_16px_currentColor]`} />
                 <div className="text-xs font-bold tracking-tight text-slate-900 dark:text-white/90">AutoChecker</div>
-                <div className="ml-auto h-4 w-9 rounded bg-slate-300/60 dark:bg-white/10" />
+                <div className={`${pushEdge} h-4 w-9 rounded bg-slate-300/60 dark:bg-white/10`} />
                 <div className="h-4 w-4 rounded bg-slate-300/60 dark:bg-white/10" />
             </div>
 
-            {/* list */}
+            {/* list (icon to the *outside*; mirror rows when mirror=true) */}
             <div className="mt-3 space-y-2">
                 {Array.from({ length: 4 }).map((_, i) => (
                     <div key={i} className="rounded-xl border border-slate-200/60 bg-slate-100/60 p-2 dark:border-white/10 dark:bg-white/[0.03]">
-                        <div className="flex items-center gap-2">
+                        <div className={`flex items-center gap-2 ${isMirror ? "flex-row-reverse" : ""}`}>
                             <div className={`${accent === "emerald" ? "bg-emerald-400" : "bg-cyan-400"} h-5 w-5 rounded`} />
                             <div className="h-3 flex-1 rounded bg-slate-300/60 dark:bg-white/10" />
                             <div className="h-3 w-10 rounded bg-slate-300/60 dark:bg-white/10" />
@@ -259,22 +271,19 @@ function PhoneCard({side}: { side: "left" | "right" }) {
                 ))}
             </div>
 
-            {/* footer */}
+            {/* footer (swap order when mirror=true) */}
             <div className="mt-3 grid grid-cols-2 gap-2">
-                <div
-                    className={[
-                        "rounded px-3 py-2 text-center text-xs font-semibold shadow-sm",
-                        "ring-1 focus:outline-none focus-visible:ring-2",
-                        accent === "emerald"
-                            ? "bg-emerald-500 text-slate-950 hover:bg-emerald-400 ring-emerald-400/40 dark:bg-emerald-500 dark:hover:bg-emerald-400 dark:ring-emerald-400/30"
-                            : "bg-cyan-500 text-slate-950 hover:bg-cyan-400 ring-cyan-400/40 dark:bg-cyan-500/90 dark:hover:bg-cyan-400 dark:ring-cyan-400/30",
-                    ].join(" ")}
-                >
-                    Actions
-                </div>
-                <div className="rounded px-3 py-2 text-center text-xs font-semibold border border-slate-300/60 bg-white text-slate-700 ring-1 ring-slate-200/70 hover:bg-slate-100/60 dark:border-white/15 dark:bg-white/[0.03] dark:text-slate-200 dark:ring-white/10 dark:hover:bg-white/[0.06]">
-                    Report
-                </div>
+                {isMirror ?  (
+                    <>
+                        <div className={secondaryBtn}>Report</div>
+                        <div className={primaryBtn}>Actions</div>
+                    </>
+                ) : (
+                    <>
+                        <div className={primaryBtn}>Actions</div>
+                        <div className={secondaryBtn}>Report</div>
+                    </>
+                )}
             </div>
         </div>
     );
