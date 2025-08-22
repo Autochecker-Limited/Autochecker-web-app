@@ -99,7 +99,7 @@ export default function Pricing() {
                     <div className="mx-auto my-8 w-full max-w-5xl">
                         <div className="h-px bg-gradient-to-r from-transparent via-slate-200/70 to-transparent dark:via-white/10" />
                     </div>
-                    
+
 
                     {/* Toggle like the reference */}
                     <div
