@@ -1,10 +1,9 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import ThemeProvider from "@/components/helpers/theme-provider";
-import { Space_Grotesk, IBM_Plex_Mono } from "next/font/google";
 import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -16,6 +15,10 @@ export const metadata = {
   title: "AutoChecker — Verify Before You Buy",
   description:
     "Instant vehicle checks for theft, accidents, and ownership — right from WhatsApp.",
+    icons: {
+        icon: "/favicon.ico",          // path in /public folder
+        shortcut: "/favicon.ico",
+    },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
