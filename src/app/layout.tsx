@@ -19,6 +19,7 @@ export const metadata = {
         icon: "/favicon.ico",          // path in /public folder
         shortcut: "/favicon.ico",
     },
+    robots: { index: false, follow: false }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
